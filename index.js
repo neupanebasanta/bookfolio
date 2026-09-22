@@ -21,11 +21,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //Setup static files
-app.set(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Home route
 app.get('/', (req, res) => {
     res.render('index.ejs');
+});
+
+//About route
+app.get('/about', (req, res) => {
+    res.render('about.ejs');
+});
+
+//Add New route
+app.get('/add-new', (req,res)=>{
+    res.render('add-new.ejs');
 });
 
 //Start the server

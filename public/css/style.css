@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+    --heading-font: "Playfair Display", serif;
+    --body-font: "Inter", sans-serif;
+
+    --background-color: #171A17;
+    --surface-color: #222722;
+    --primary-color: #D6C7A1;
+    --accent-color: #8FAF8F;
+    --text-color: #F2EFE6;
+    --muted-text-color: #AAA99F;
+    --border-color: #383D38;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    height: 80px;
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.logo img {
+    height: 40px;
+}
+
+.logo span {
+    font-family: var(--heading-font);
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+/* Navigation links */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.navbar-links a {
+    position: relative;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+    color: var(--primary-color);
+}
+
+/* ADD New button */
+.navbar-action a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 50px;
+    color: var(--surface-color);
+    background-color: var(--accent-color);
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.navbar-action a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+.navbar-action a span {
+    font-size: 1.3rem;
+}
