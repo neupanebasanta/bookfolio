@@ -3,14 +3,25 @@ import axios from 'axios';
 import pg from 'pg';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import 'dotenv/config';
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 //Get working directory name
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const port = 3000;
+//Connect database
+const db = new pg.Client({
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+});
+
+db.connect();
 
 //Setup EJS
 app.set('view engine', 'ejs');
@@ -34,7 +45,7 @@ app.get('/about', (req, res) => {
 });
 
 //Add New route
-app.get('/add-new', (req,res)=>{
+app.get('/add-new', (req, res) => {
     res.render('add-new.ejs');
 });
 
