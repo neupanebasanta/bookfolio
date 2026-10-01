@@ -34,19 +34,24 @@ app.use(express.urlencoded({ extended: true }));
 //Setup static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Home route
-app.get('/', (req, res) => {
+//Home page route
+app.get('/books', (req, res) => {
     res.render('index.ejs');
 });
 
-//About route
+//Redirecting '/' to '/books'
+app.get('/', (req, res)=>{
+    res.redirect('/books');
+});
+
+//About page route
 app.get('/about', (req, res) => {
     res.render('about.ejs');
 });
 
-//Add New route
-app.get('/add-new', (req, res) => {
-    res.render('add-new.ejs');
+//Add New page route
+app.get('/books/new', (req, res) => {
+    res.render('books/new.ejs');
 });
 
 //Start the server

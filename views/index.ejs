@@ -1,8 +1,44 @@
 <!-- Header section -->
 <%- include('partials/header.ejs') %>
 
-<!-- Main section -->
+    <!-- Main section -->
+    <main class="books-page">
 
+        <div class="page-header">
+            <h1>My books</h1>
+        </div>
 
-<!-- Footer section -->
-<%- include('partials/footer.ejs') %>
+        <div class="books-controls">
+
+            <form action="/books" method="get" class="search-form">
+                <input type="search" name="search_query" placeholder="Search books...">
+                <button type="submit">Search</button>
+            </form>
+
+            <form action="/books" method="get" class="sort-form">
+                <!-- <label for="sort-menu">Sort By:</label> -->
+                <select name="sort_query" id="sort-menu">
+                    <option value="rating">Rating</option>
+                    <option value="recent">Recent</option>
+                    <option value="a-z">A-Z</option>
+                </select>
+                <button type="submit">Sort</button>
+            </form>
+
+        </div>
+
+        <div class="books-grid">
+            <article class="book-card"></article>
+            <article class="book-card"></article>
+            <article class="book-card"></article>
+            <article class="book-card"></article>
+            <article class="book-card"></article>
+            <article class="book-card"></article>
+            <article class="book-card"></article>
+            <article class="book-card"></article>
+        </div>
+
+    </main>
+
+    <!-- Footer section -->
+    <%- include('partials/footer.ejs') %>
