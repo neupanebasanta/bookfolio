@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
-:root {
+/* :root {
     --heading-font: "Playfair Display", serif;
     --body-font: "Inter", sans-serif;
 
@@ -14,8 +14,23 @@
     --muted-text-color: #AFA69A;
 
     --border-color: #3A332B;
-}
+} */
 
+:root {
+    --heading-font: "Playfair Display", serif;
+    --body-font: "Inter", sans-serif;
+
+    --background-color: #0F172A;
+    --surface-color: #1E293B;
+
+    --primary-color: #6366F1;
+    --accent-color: #38BDF8;
+
+    --text-color: #F8FAFC;
+    --muted-text-color: #94A3B8;
+
+    --border-color: #334155;
+}
 
 /* ======================        Global        ======================*/
 
@@ -40,6 +55,7 @@ body {
 /* Page header */
 .page-header {
     text-align: center;
+    margin-bottom: 40px;
 }
 
 .page-header h1 {
@@ -61,6 +77,9 @@ body {
     background-color: var(--surface-color);
     border-bottom: 1px solid var(--border-color);
     transition: box-shadow 0.2s ease;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .navbar:hover {
@@ -149,7 +168,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 40px;
     padding: 18px 0;
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
@@ -269,10 +287,126 @@ body {
 }
 
 .book-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-1px);
     box-shadow: 0 8px 20px var(--border-color);
 }
 
 
 /* ======================        ADD BOOK PAGE        ====================== */
 
+.add-book-page {
+    width: 800px;
+}
+
+/* Form */
+.add-book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 35px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+/* Form group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 11px 14px;
+    outline: none;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Form row */
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/* Submit and Clear button */
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+    border-top: 2px dashed var(--border-color);
+    padding-top: 30px;
+}
+
+/* Submit button */
+.submit-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--primary-color);
+    color: var(--surface-color);
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: var(--accent-color);
+}
+
+.submit-button:active {
+    transform: translateY(1px);
+    opacity: 0.7;
+}
+
+/* Clear button */
+.clear-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--primary-color);
+    color: var(--surface-color);
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.clear-button:hover {
+    background-color: var(--accent-color);
+}
+
+.clear-button:active {
+    transform: translateY(1px);
+    opacity: 0.7;
+}
