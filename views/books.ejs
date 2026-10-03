@@ -2,40 +2,54 @@
 <%- include('partials/header.ejs') %>
 
     <!-- Main section -->
-    <main class="books-page">
+    <main class="container books-page">
 
+        <!-- Page header -->
         <div class="page-header">
             <h1>My books</h1>
         </div>
 
+        <!-- Books control panal -->
         <div class="books-controls">
 
+            <!-- Search Bar Form -->
             <form action="/books" method="get" class="search-form">
                 <input type="search" name="search_query" placeholder="Search books...">
                 <button type="submit">Search</button>
             </form>
 
+            <!-- Sort options Form -->
             <form action="/books" method="get" class="sort-form">
                 <!-- <label for="sort-menu">Sort By:</label> -->
                 <select name="sort_query" id="sort-menu">
-                    <option value="rating">Rating</option>
                     <option value="recent">Recent</option>
+                    <option value="rating">Rating</option>
                     <option value="a-z">A-Z</option>
                 </select>
                 <button type="submit">Sort</button>
             </form>
-
         </div>
 
+        <!-- Books Grid -->
         <div class="books-grid">
+
+            <!-- Book Card -->
             <article class="book-card"></article>
+            <!-- Book Card -->
             <article class="book-card"></article>
+            <!-- Book Card -->
             <article class="book-card"></article>
+            <!-- Book Card -->
             <article class="book-card"></article>
+            <!-- Book Card -->
             <article class="book-card"></article>
+            <!-- Book Card -->
             <article class="book-card"></article>
+            <!-- Book Card -->
             <article class="book-card"></article>
+            <!-- Book Card -->
             <article class="book-card"></article>
+            
         </div>
 
     </main>

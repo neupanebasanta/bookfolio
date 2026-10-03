@@ -16,6 +16,7 @@
     --border-color: #3A332B;
 }
 
+
 /* ======================        Global        ======================*/
 
 * {
@@ -30,6 +31,23 @@ body {
     font-family: var(--body-font);
 }
 
+.container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    padding: 40px 0 60px 0;
+}
+
+/* Page header */
+.page-header {
+    text-align: center;
+}
+
+.page-header h1 {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    font-weight: 600;
+}
 
 
 /* ======================        NAVBAR        ======================*/
@@ -51,7 +69,6 @@ body {
 
 
 /* Logo */
-
 .logo {
     display: flex;
     align-items: center;
@@ -61,7 +78,7 @@ body {
 }
 
 .logo img {
-    height: 32px;
+    height: 30px;
 }
 
 .logo span {
@@ -71,8 +88,7 @@ body {
 }
 
 
-/* Navigation links */
-
+/* Links */
 .navbar-links {
     display: flex;
     align-items: center;
@@ -85,7 +101,7 @@ body {
     color: var(--text-color);
     font-size: 1.1rem;
     font-weight: 500;
-    transition: color 0.2s ease, 0.2s ease, opacity 0.2s ease;
+    transition: color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
 }
 
 .navbar-links a:hover {
@@ -99,7 +115,6 @@ body {
 
 
 /* ADD New button */
-
 .navbar-action a {
     display: flex;
     align-items: center;
@@ -127,31 +142,9 @@ body {
 }
 
 
-
 /* ======================        BOOKS PAGE        ====================== */
 
-.books-page {
-    width: min(1200px, 90%);
-    margin: 0 auto;
-    padding: 40px 0 60px 0;
-}
-
-
-/* Page header */
-.page-header {
-    text-align: center;
-}
-
-.page-header h1 {
-    font-family: var(--heading-font);
-    color: var(--primary-color);
-    font-size: 2.5rem;
-    font-weight: 600;
-}
-
-
 /* Search and sort */
-
 .books-controls {
     display: flex;
     align-items: center;
@@ -162,9 +155,7 @@ body {
     border-bottom: 1px solid var(--border-color);
 }
 
-
 /* Search */
-
 .search-form {
     display: flex;
     align-items: center;
@@ -211,7 +202,6 @@ body {
     transform: translateY(1px);
     opacity: 0.7;
 }
-
 
 /* Sort */
 .sort-form {
@@ -261,9 +251,7 @@ body {
     opacity: 0.7;
 }
 
-
 /* Books Grid */
-
 .books-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -271,9 +259,7 @@ body {
     margin-top: 40px;
 }
 
-
 /* Book Card */
-
 .book-card {
     min-height: 300px;
     background-color: var(--surface-color);
@@ -286,3 +272,7 @@ body {
     transform: translateY(-4px);
     box-shadow: 0 8px 20px var(--border-color);
 }
+
+
+/* ======================        ADD BOOK PAGE        ====================== */
+

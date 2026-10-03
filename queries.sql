@@ -11,6 +11,6 @@ CREATE TABLE books (
     status VARCHAR(30),
     start_date DATE,
     completion_date DATE,
-    cover_url TEXT
+    cover_url TEXT,
     created_at TIMESTAMP DEFAULT NOW()
 );
