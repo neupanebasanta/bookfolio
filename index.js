@@ -55,21 +55,23 @@ app.get('/', (req, res) => {
 
 // Books page
 app.get('/books', (req, res) => {
-    res.render('books.ejs',{
+    res.render('books.ejs', {
         currentPage: '/books',
     });
 });
 
 // Add new book page
 app.get('/books/new', (req, res) => {
-    res.render('books/new.ejs',{
+    res.render('books/new.ejs', {
         currentPage: '/books/new',
     });
 });
 
 // About page
 app.get('/about', (req, res) => {
-    res.render('about.ejs');
+    res.render('about.ejs', {
+        currentPage: '/about',
+    });
 });
 
 

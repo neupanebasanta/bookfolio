@@ -22,16 +22,18 @@
         </div>
 
         <div class=" navbar-links">
-            <a href="/books" class="active">My books</a>
+            <a href="/books" class="active">Books</a>
             <a href="/about">About</a>
         </div>
 
         <div class="navbar-action">
             <% if(currentPage==='/books' ) { %>
                 <a href="/books/new">Add new <span>+</span></a>
-                <% } else if(currentPage==='/books/new') { %>
-                    <a href="/books"><span>←</span>Go back</a>
-                    <% } %>
+                <% } else if(currentPage==='/books/new' ) { %>
+                    <a href="/books"><span>←</span>To Books</a>
+                    <% } else if(currentPage==='/about' ) {%>
+                        <a href="/books"><span>←</span>To Books</a>
+                        <% } %>
         </div>
 
     </nav>
