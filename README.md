@@ -20,7 +20,6 @@ Bookfolio is a personal digital bookshelf for tracking the books I read, my rati
 - Express.js
 - EJS
 - PostgreSQL
-- Axios
 - Open Library API
 
 ## Status

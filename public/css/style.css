@@ -24,12 +24,12 @@
     --surface-color: #1E293B;
 
     --primary-color: #6366F1;
-    --accent-color: #38BDF8;
+    --accent-color: #A0C49D;
 
     --text-color: #F8FAFC;
     --muted-text-color: #94A3B8;
 
-    --border-color: #405169;
+    --border-color: #2e3f5a;
 }
 
 /* ======================        Global        ======================*/
@@ -82,22 +82,23 @@ body {
     z-index: 1;
 }
 
-.navbar:hover {
-    box-shadow: 0 4px 12px var(--border-color);
-}
+/* .navbar:hover {
+        box-shadow: 0 4px 12px var(--border-color);
+    } */
 
 
 /* Logo */
 .logo {
     display: flex;
     align-items: center;
-    gap: 1px;
     text-decoration: none;
     color: var(--primary-color);
 }
 
 .logo img {
     height: 30px;
+    font-family: var(--heading-font);
+    fill: var(--primary-color);
 }
 
 .logo span {
@@ -414,29 +415,29 @@ body {
 
 /* ======================        ABOUT PAGE        ====================== */
 
-.about-page{
+.about-page {
     width: 900px;
 }
 
 /* Page header */
-.about-page .page-header p{
+.about-page .page-header p {
     margin-top: 10px;
     color: var(--muted-text-color);
     font-size: 1rem;
 }
 
 /* About section */
-.about-section{
+.about-section {
     padding: 30px 0;
     border-bottom: 1px solid var(--border-color);
 }
 
-.about-section:last-child{
+.about-section:last-child {
     border-bottom: none;
 }
 
 /* Section heading */
-.about-section h2{
+.about-section h2 {
     margin-bottom: 16px;
     font-family: var(--heading-font);
     color: var(--primary-color);
@@ -445,7 +446,7 @@ body {
 }
 
 /* Paragraphs */
-.about-section p{
+.about-section p {
     max-width: 750px;
     margin-bottom: 14px;
     color: var(--text-color);
@@ -454,7 +455,7 @@ body {
 }
 
 /* List */
-.about-section ul{
+.about-section ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px 40px;
@@ -462,12 +463,12 @@ body {
     color: var(--text-color);
 }
 
-.about-section li{
+.about-section li {
     padding-left: 5px;
     font-size: 0.95rem;
     line-height: 1.6;
 }
 
-.about-section li::marker{
+.about-section li::marker {
     color: var(--accent-color);
 }

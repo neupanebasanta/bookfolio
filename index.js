@@ -60,6 +60,40 @@ app.get('/books', (req, res) => {
     });
 });
 
+//Add a new book from form to database
+app.post('/books', async (req, res) => {
+
+    console.log(req.body);
+    const {
+        title,
+        author,
+        rating,
+        status,
+        start_date,
+        completion_date,
+        note,
+    } = req.body;
+
+    try {
+        await db.query(`INSERT INTO books (title, author, rating, status, start_date, completion_date, note) 
+                        VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+            [
+                title,
+                author,
+                rating || null,
+                status,
+                start_date || null,
+                completion_date || null,
+                note || null
+            ]
+        );
+        res.redirect('/books');
+    } catch (error) {
+        console.error('Error adding book:', error)
+        res.status(500).send('Failed to add book. Reload and try again');
+    }
+});
+
 // Add new book page
 app.get('/books/new', (req, res) => {
     res.render('books/new.ejs', {
