@@ -34,22 +34,92 @@
         <div class="books-grid">
 
             <!-- Book Card -->
-            <article class="book-card"></article>
-            <!-- Book Card -->
-            <article class="book-card"></article>
-            <!-- Book Card -->
-            <article class="book-card"></article>
-            <!-- Book Card -->
-            <article class="book-card"></article>
-            <!-- Book Card -->
-            <article class="book-card"></article>
-            <!-- Book Card -->
-            <article class="book-card"></article>
-            <!-- Book Card -->
-            <article class="book-card"></article>
-            <!-- Book Card -->
-            <article class="book-card"></article>
-            
+            <% books.forEach(book=> { %>
+                <article class="book-card">
+
+                    <!-- Cover -->
+                    <div class="book-cover">
+                        <% if (book.cover_url) { %>
+                            <img src="<%= book.cover_url %>" alt="<%= book.title %>">
+                            <% } else{ %>
+                                <h5>No cover</h5>
+                                <%} %>
+                    </div>
+
+                    <!-- Info -->
+                    <div class="book-info">
+
+                        <!-- Title -->
+                        <h2 class="book-title">
+                            <%= book.title %>
+                        </h2>
+
+                        <!-- Author -->
+                        <p class="book-author">
+                            <%= book.author %>
+                        </p>
+
+                        <!-- Meta -->
+                        <div class="book-meta">
+                            <!-- Rating -->
+                            <span>✯ <%= book.rating %></span>
+                            <!-- Status -->
+                            <span>• <%= book.status %></span>
+                        </div>
+
+                        <!-- Start and Completion date -->
+                        <div class="book-dates">
+
+                            <!-- Start -->
+                            <div>
+                                <span>Stared:</span>
+                                <strong>
+                                    <% if(book.start_date) {%>
+                                        <%= book.start_date.toLocaleDateString('en-US',{ month: 'short' , day: 'numeric'
+                                            , year: 'numeric' }); %>
+                                            <% } else { %>
+                                                Not started.
+                                                <% } %>
+                                </strong>
+                            </div>
+
+                            <!-- Completion -->
+                            <div>
+                                <span>Completed:</span>
+                                <strong>
+
+                                    <% if(book.completion_date) {%>
+                                        <%= book.completion_date.toLocaleDateString('en-US',{ month: 'short' ,
+                                            day: 'numeric' , year: 'numeric' }); %>
+                                            <% } else { %>
+                                                Not completed.
+                                                <% } %>
+                                </strong>
+                            </div>
+                        </div>
+
+                        <!-- Note -->
+                        <p class="book-note">
+                            <% if(book.note) { %>
+                                <% if(book.note.length> 120) { %>
+                                    <%= book.note.slice(0, 120) %>....
+                                        <% } else { %>
+                                            <%= book.note %>
+                                                <% } %>
+                                                    <% } else { %>
+                                                        Note not added.
+                                                        <% } %>
+                        </p>
+
+                        <!-- Show more button -->
+                        <div class="show-button">
+                            <a href="/books/<%= book.id %>">Show more</a>
+                        </div>
+                    </div>
+
+                </article>
+                <% }); %>
+
         </div>
 
     </main>

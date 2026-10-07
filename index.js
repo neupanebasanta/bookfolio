@@ -54,13 +54,20 @@ app.get('/', (req, res) => {
 });
 
 // Books page
-app.get('/books', (req, res) => {
-    res.render('books.ejs', {
-        currentPage: '/books',
-    });
+app.get('/books', async (req, res) => {
+    try {
+        const result = await db.query('SELECT * FROM books');
+
+        res.render('books.ejs', {
+            currentPage: '/books',
+            books: result.rows,
+        });
+    } catch (error) {
+        res.status(500).send('Unable to fetch data from database. Please try again.');
+    }
 });
 
-//Add a new book from form to database
+//Add a new book to database
 app.post('/books', async (req, res) => {
 
     console.log(req.body);
@@ -94,7 +101,7 @@ app.post('/books', async (req, res) => {
     }
 });
 
-// Add new book page
+// Add new page
 app.get('/books/new', (req, res) => {
     res.render('books/new.ejs', {
         currentPage: '/books/new',
