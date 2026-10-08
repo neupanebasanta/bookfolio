@@ -24,7 +24,7 @@
     --surface-color: #1E293B;
 
     --primary-color: #6366F1;
-    --accent-color: #A0C49D;
+    --accent-color: #609665;
 
     --text-color: #F8FAFC;
     --muted-text-color: #94A3B8;
@@ -46,12 +46,6 @@ body {
     font-family: var(--body-font);
 }
 
-.container {
-    width: min(1200px, 90%);
-    margin: 0 auto;
-    padding: 40px 0 60px 0;
-}
-
 /* Page header */
 .page-header {
     text-align: center;
@@ -63,6 +57,12 @@ body {
     color: var(--primary-color);
     font-size: 2.5rem;
     font-weight: 600;
+}
+
+.page-header p {
+    margin-top: 10px;
+    color: var(--muted-text-color);
+    font-size: 1rem;
 }
 
 
@@ -81,11 +81,6 @@ body {
     top: 0;
     z-index: 1;
 }
-
-/* .navbar:hover {
-        box-shadow: 0 4px 12px var(--border-color);
-    } */
-
 
 /* Logo */
 .logo {
@@ -138,9 +133,9 @@ body {
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 8px 16px;
+    padding: 5px 12px;
     text-decoration: none;
-    border-radius: 50px;
+    border-radius: 6px;
     color: var(--surface-color);
     background-color: var(--primary-color);
     font-weight: 600;
@@ -157,11 +152,18 @@ body {
 }
 
 .navbar-action a span {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 500;
 }
 
 
 /* ======================        BOOKS PAGE        ====================== */
+
+.books-page{
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    padding: 40px 0 60px 0;
+}
 
 /* Search and sort */
 .books-controls {
@@ -228,11 +230,6 @@ body {
     gap: 10px;
 }
 
-.sort-form label {
-    color: var(--muted-text-color);
-    font-size: 0.9rem;
-}
-
 .sort-form select {
     padding: 9px 12px;
     border: 1px solid var(--border-color);
@@ -292,10 +289,13 @@ body {
 }
 
 
+
 /* ======================        ADD NEW BOOK PAGE        ====================== */
 
 .add-book-page {
     width: 800px;
+    margin: 0 auto;
+    padding: 40px 0 60px 0;
 }
 
 /* Form */
@@ -416,13 +416,8 @@ body {
 
 .about-page {
     width: 900px;
-}
-
-/* Page header */
-.about-page .page-header p {
-    margin-top: 10px;
-    color: var(--muted-text-color);
-    font-size: 1rem;
+    margin: 0 auto;
+    padding: 40px 0 60px 0;
 }
 
 /* About section */

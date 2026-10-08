@@ -48,7 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // ====================== ROUTES ======================
 
-// Redirect the root URL to the books page
+// Redirect the root URL to books page
 app.get('/', (req, res) => {
     res.redirect('/books');
 });
@@ -61,10 +61,18 @@ app.get('/books', async (req, res) => {
         res.render('books.ejs', {
             currentPage: '/books',
             books: result.rows,
+
         });
     } catch (error) {
         res.status(500).send('Unable to fetch data from database. Please try again.');
     }
+});
+
+// Add a new book page
+app.get('/books/new', (req, res) => {
+    res.render('books/new.ejs', {
+        currentPage: '/books/new',
+    });
 });
 
 //Add a new book to database
@@ -99,13 +107,6 @@ app.post('/books', async (req, res) => {
         console.error('Error adding book:', error)
         res.status(500).send('Failed to add book. Reload and try again');
     }
-});
-
-// Add new page
-app.get('/books/new', (req, res) => {
-    res.render('books/new.ejs', {
-        currentPage: '/books/new',
-    });
 });
 
 // About page

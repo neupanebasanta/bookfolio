@@ -7,6 +7,7 @@
         <!-- Page header -->
         <div class="page-header">
             <h1>My Books</h1>
+            <p>View and manage your book shelves</p>
         </div>
 
         <!-- Books control panal -->
@@ -20,7 +21,6 @@
 
             <!-- Sort options Form -->
             <form action="/books" method="get" class="sort-form">
-                <!-- <label for="sort-menu">Sort By:</label> -->
                 <select name="sort_query" id="sort-menu">
                     <option value="recent">Recent</option>
                     <option value="rating">Rating</option>
@@ -39,46 +39,56 @@
 
                     <!-- Cover -->
                     <div class="book-cover">
-                        <% if (book.cover_url) { %>
-                            <img src="<%= book.cover_url %>" alt="<%= book.title %>">
-                            <% } else{ %>
-                                <h5>No cover</h5>
-                                <%} %>
+                        <a href="/books/<%= book.id %>">
+                            <% if (book.cover_url) { %>
+                                <img src="<%= book.cover_url %>" alt="<%= book.title %>">
+                                <% } else{ %>
+                                    <h5>No cover</h5>
+                                    <% } %>
+                        </a>
+
                     </div>
 
                     <!-- Info -->
                     <div class="book-info">
 
                         <!-- Title -->
-                        <h2 class="book-title">
-                            <%= book.title %>
-                        </h2>
+                        <a href="/books/<%= book.id %>" class="book-title">
+                            <h2>
+                                <%= book.title %>
+                            </h2>
+                        </a>
 
                         <!-- Author -->
                         <p class="book-author">
                             <%= book.author %>
                         </p>
 
-                        <!-- Meta -->
+                        <!-- Rating and Status -->
                         <div class="book-meta">
                             <!-- Rating -->
-                            <span>✯ <%= book.rating %></span>
-                            <!-- Status -->
-                            <span>• <%= book.status %></span>
+                            <% if(book.rating) { %>
+                                <span>✯ <%= book.rating %></span>
+                                <% } else { %>
+                                    <span>Not rated</span>
+                                    <% } %>
+
+                                        <!-- Status -->
+                                        <span>• <%= book.status %></span>
                         </div>
 
-                        <!-- Start and Completion date -->
+                        <!-- Start and Completion dates -->
                         <div class="book-dates">
 
                             <!-- Start -->
                             <div>
-                                <span>Stared:</span>
+                                <span>Started:</span>
                                 <strong>
                                     <% if(book.start_date) {%>
-                                        <%= book.start_date.toLocaleDateString('en-US',{ month: 'short' , day: 'numeric'
-                                            , year: 'numeric' }); %>
+                                        <%= book.start_date.toLocaleDateString('en-US', { month: 'short' ,
+                                            day: 'numeric' , year: 'numeric' }); %>
                                             <% } else { %>
-                                                Not started.
+                                                Not started
                                                 <% } %>
                                 </strong>
                             </div>
@@ -92,7 +102,7 @@
                                         <%= book.completion_date.toLocaleDateString('en-US',{ month: 'short' ,
                                             day: 'numeric' , year: 'numeric' }); %>
                                             <% } else { %>
-                                                Not completed.
+                                                Not completed
                                                 <% } %>
                                 </strong>
                             </div>
@@ -102,19 +112,26 @@
                         <p class="book-note">
                             <% if(book.note) { %>
                                 <% if(book.note.length> 120) { %>
-                                    <%= book.note.slice(0, 120) %>....
+                                    <%= book.note.slice(0, 120) %>…
                                         <% } else { %>
                                             <%= book.note %>
                                                 <% } %>
                                                     <% } else { %>
-                                                        Note not added.
+                                                        No note added.
                                                         <% } %>
                         </p>
+                    </div>
 
-                        <!-- Show more button -->
-                        <div class="show-button">
-                            <a href="/books/<%= book.id %>">Show more</a>
-                        </div>
+                    <!-- Edit and Remove button -->
+                    <div class="book-actions">
+                        <!-- Edit -->
+                        <a href="/books/<%= book.id %>/edit" class="edit-button">Edit</a>
+
+                        <!-- Remove -->
+                        <form action="/books/<%= book.id %>/remove" method="post" class="remove-button">
+                            <button type="submit"
+                                onclick="return confirm('This will remove the book completely. Are you sure want to remove the book?')">Remove</button>
+                        </form>
                     </div>
 
                 </article>
