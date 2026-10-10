@@ -43,7 +43,9 @@
                             <% if (book.cover_url) { %>
                                 <img src="<%= book.cover_url %>" alt="<%= book.title %>">
                                 <% } else{ %>
-                                    <h5>No cover</h5>
+                                    <div class="no-cover">
+                                        No cover
+                                    </div>
                                     <% } %>
                         </a>
 
@@ -61,27 +63,27 @@
 
                         <!-- Author -->
                         <p class="book-author">
-                            <%= book.author %>
+                            by <%= book.author %>
                         </p>
 
                         <!-- Rating and Status -->
                         <div class="book-meta">
                             <!-- Rating -->
                             <% if(book.rating) { %>
-                                <span>✯ <%= book.rating %></span>
+                                <span class="book-rating">✯ <%= book.rating %></span>
                                 <% } else { %>
-                                    <span>Not rated</span>
+                                    <span class="not-rated">Not rated</span>
                                     <% } %>
 
                                         <!-- Status -->
-                                        <span>• <%= book.status %></span>
+                                        <span class=" book-status">• <%= book.status %></span>
                         </div>
 
                         <!-- Start and Completion dates -->
-                        <div class="book-dates">
+                        <div class="dates">
 
                             <!-- Start -->
-                            <div>
+                            <div class="start-date">
                                 <span>Started:</span>
                                 <strong>
                                     <% if(book.start_date) {%>
@@ -94,7 +96,7 @@
                             </div>
 
                             <!-- Completion -->
-                            <div>
+                            <div completion-date>
                                 <span>Completed:</span>
                                 <strong>
 
@@ -117,7 +119,7 @@
                                             <%= book.note %>
                                                 <% } %>
                                                     <% } else { %>
-                                                        No note added.
+                                                        <div class="no-note">No note added.</div>
                                                         <% } %>
                         </p>
                     </div>
