@@ -7,7 +7,6 @@
         <!-- Page header -->
         <div class="page-header">
             <h1>My Books</h1>
-            <p>View and manage your book shelves</p>
         </div>
 
         <!-- Books control panal -->
@@ -70,13 +69,13 @@
                         <div class="book-meta">
                             <!-- Rating -->
                             <% if(book.rating) { %>
-                                <span class="book-rating">✯ <%= book.rating %></span>
+                                <span class="book-rating">⭐ <%= book.rating %></span>
                                 <% } else { %>
                                     <span class="not-rated">Not rated</span>
                                     <% } %>
 
                                         <!-- Status -->
-                                        <span class=" book-status">• <%= book.status %></span>
+                                        <span class=" book-status">⚪ <%= book.status %></span>
                         </div>
 
                         <!-- Start and Completion dates -->
@@ -84,7 +83,7 @@
 
                             <!-- Start -->
                             <div class="start-date">
-                                <span>Started:</span>
+                                <span>Start:</span>
                                 <strong>
                                     <% if(book.start_date) {%>
                                         <%= book.start_date.toLocaleDateString('en-US', { month: 'short' ,
@@ -97,14 +96,13 @@
 
                             <!-- Completion -->
                             <div completion-date>
-                                <span>Completed:</span>
+                                <span>Completion:</span>
                                 <strong>
-
                                     <% if(book.completion_date) {%>
                                         <%= book.completion_date.toLocaleDateString('en-US',{ month: 'short' ,
                                             day: 'numeric' , year: 'numeric' }); %>
                                             <% } else { %>
-                                                Not completed
+                                                <div class="not-completed">Not completed</div>
                                                 <% } %>
                                 </strong>
                             </div>
