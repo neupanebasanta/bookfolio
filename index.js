@@ -68,14 +68,14 @@ app.get('/books', async (req, res) => {
     }
 });
 
-// Add a new book page
+// Add new page
 app.get('/books/new', (req, res) => {
     res.render('books/new.ejs', {
         currentPage: '/books/new',
     });
 });
 
-//Add a new book to database
+//Add book to database
 app.post('/books', async (req, res) => {
 
     console.log(req.body);
@@ -114,6 +114,22 @@ app.get('/about', (req, res) => {
     res.render('about.ejs', {
         currentPage: '/about',
     });
+});
+
+//Book details page
+app.get('/books/:id', async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        const result = await db.query(`SELECT * FROM books WHERE id = $1`, [id]);
+        res.render('books/show.ejs', {
+            book: result.rows[0],
+            currentPage: '/books/id',
+        });
+    } catch (error) {
+        console.error('Error finding book by id:', error);
+        res.status(500).send('Failed to fetch book. Reload and try again please');
+    }
 });
 
 

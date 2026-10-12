@@ -16,6 +16,28 @@
     --border-color: #3A332B;
 } */
 
+/* :root {
+    --heading-font: "Playfair Display", serif;
+    --body-font: "Inter", sans-serif;
+
+    --background-color: #0F1215;
+    --surface-color: #171B20;
+    --surface-hover-color: #252A31;
+
+    --primary-color: #E8C58A;
+    --primary-hover-color: #F2D5A5;
+
+    --text-color: #F2F0EA;
+    --muted-text-color: #A9B0BB;
+
+    --border-color: #2B3037;
+
+    --success-color: #8BCFA8;
+    --danger-color: #E5A0A0;
+    --warning-color: #E8C58A;
+} */
+
+
 :root {
     --heading-font: "Playfair Display", serif;
     --body-font: "Inter", sans-serif;
@@ -23,8 +45,8 @@
     --background-color: #0F172A;
     --surface-color: #1E293B;
 
-    --primary-color: #6366F1;
-    --accent-color: #609665;
+    --primary-color: #7679ff;
+    --accent-color: #76ABAE;
 
     --text-color: #d6dfe7;
     --muted-text-color: #94A3B8;
@@ -139,11 +161,12 @@ body {
     color: var(--surface-color);
     background-color: var(--primary-color);
     font-weight: 500;
-    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease, color 0.2sec ease;
 }
 
 .navbar-action a:hover {
     background-color: var(--accent-color);
+    color: var(--text-color);
 }
 
 .navbar-action a:active {
@@ -211,11 +234,12 @@ body {
     font-family: var(--body-font);
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease, color 0.2sec ease;
 }
 
 .search-form button:hover {
     background-color: var(--accent-color);
+    color: var(--text-color);
 }
 
 .search-form button:active {
@@ -254,11 +278,12 @@ body {
     font-family: var(--body-font);
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease, color 0.2sec ease;
 }
 
 .sort-form button:hover {
     background-color: var(--accent-color);
+    color: var(--text-color);
 }
 
 .sort-form button:active {
@@ -531,11 +556,12 @@ body {
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease, color 0.2sec ease;
 }
 
 .submit-button:hover {
     background-color: var(--accent-color);
+    color: var(--text-color);
 }
 
 .submit-button:active {
@@ -554,11 +580,12 @@ body {
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease, color 0.2sec ease;
 }
 
 .clear-button:hover {
     background-color: var(--accent-color);
+    color: var(--text-color);
 }
 
 .clear-button:active {
