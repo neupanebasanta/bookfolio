@@ -1,10 +1,134 @@
 <!-- Header section -->
 <%- include('../partials/header.ejs') %>
 
+
     <!-- Main section -->
     <main class="book-details-page">
-        
+
+        <!-- Details section -->
+        <section class="book-details-section">
+
+            <!-- Cover -->
+            <div class="book-details-cover">
+                <% if (book.cover_url) { %>
+                    <img src="<%= book.cover_url %>" alt="<%= book.title %> cover">
+                    <% } else{ %>
+                        <span class="book-details-no-cover">NO COVER</span>
+                        <% } %>
+            </div>
+
+
+            <!-- Information -->
+            <div class="book-details-info">
+
+                <!-- Action -->
+                <div class="book-details-actions">
+                    <!-- Edit -->
+                    <a href="/books/<%= book.id %>/edit" class="edit-button"><i
+                            class="fa-solid fa-pen-to-square"></i><span>Edit</span></a>
+
+                    <!-- Remove -->
+                    <form action="/books/<%= book.id %>/remove" method="post" class="remove-button">
+                        <button type="submit"
+                            onclick="return confirm('This will remove the book completely. Are you sure want to remove the book?')"><i
+                                class="fa-solid fa-trash"></i><span>Remove</span></button>
+                    </form>
+                </div>
+
+                <!-- Status -->
+                <div class="book-details-status">
+                    <i class="fa-solid fa-circle"></i>
+                    <span>
+                        <%= book.status %>
+                    </span>
+                </div>
+
+                <!-- Title -->
+                <div class="book-details-title">
+                    <h2>
+                        <%= book.title %>
+                    </h2>
+                </div>
+
+                <!-- Author -->
+                <div class="book-details-author">
+                    <p>by <%= book.author %>
+                    </p>
+                </div>
+
+                <!-- Rating -->
+                <div class="book-details-rating">
+                    <% if(book.rating) {%>
+                        <i class="fa-solid fa-star"></i>
+                        <span>
+                            <%= book.rating %> / 5
+                        </span>
+                        <% } else{%>
+                            <span class="book-details-not-rated">Not rated</span>
+                            <% }%>
+                </div>
+
+                <!-- Dates -->
+                <div class="book-details-dates">
+
+                    <!-- State date -->
+                    <div class="book-details-start-date">
+                        <span>Start</span>
+                        <strong>
+                            <% if(book.start_date) {%>
+                                <%= new Date(book.start_date).toLocaleDateString('en-US', { month: 'short' ,
+                                    day: 'numeric' , year: 'numeric' , timeZone: 'UTC' }); %>
+                                    <% } else { %>
+                                        <div class="not-started">
+                                            Not started
+                                        </div>
+                                        <% } %>
+                        </strong>
+                    </div>
+
+                    <!-- Completion date -->
+                    <div class="book-details-completion-date">
+                        <span>Completion</span>
+                        <strong>
+                            <% if(book.completion_date) {%>
+                                <%= new Date(book.completion_date).toLocaleDateString('en-US',{ month: 'short' ,
+                                    day: 'numeric' , year: 'numeric' , timeZone: 'UTC' }); %>
+                                    <% } else { %>
+                                        <div class="not-completed">
+                                            Not completed
+                                        </div>
+                                        <% } %>
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Note section -->
+        <section class="book-note-section">
+
+            <!-- Heading -->
+            <h2 class="book-note-heading">
+                <i class="fa-solid fa-pen-clip"></i>
+                <span>My Notes</span>
+            </h2>
+
+            <!-- Content -->
+            <div class="book-note-content">
+                <% if (book.note) {%>
+                    <p class="full-note">
+                        <%= book.note %>
+                    </p>
+                    <% }else{%>
+                        <p class="empty-note">
+                            No note added yet.
+                        </p>
+                        <% } %>
+            </div>
+        </section>
     </main>
+
 
     <!-- Footer section -->
     <%- include('../partials/footer.ejs') %>

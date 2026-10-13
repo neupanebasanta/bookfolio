@@ -89,7 +89,9 @@
                                         <%= book.start_date.toLocaleDateString('en-US', { month: 'short' ,
                                             day: 'numeric' , year: 'numeric' }); %>
                                             <% } else { %>
-                                                Not started
+                                                <div class="not-started">
+                                                    Not started
+                                                </div>
                                                 <% } %>
                                 </strong>
                             </div>
@@ -102,7 +104,9 @@
                                         <%= book.completion_date.toLocaleDateString('en-US',{ month: 'short' ,
                                             day: 'numeric' , year: 'numeric' }); %>
                                             <% } else { %>
-                                                <div class="not-completed">Not completed</div>
+                                                <div class="not-completed">
+                                                    Not completed
+                                                </div>
                                                 <% } %>
                                 </strong>
                             </div>
@@ -125,10 +129,10 @@
                     <!-- Edit and Remove button -->
                     <div class="book-actions">
                         <!-- Edit -->
-                        <a href="/books/<%= book.id %>/edit" class="edit-button">Edit</a>
+                        <a href="/books/<%= book.id %>/edit">Edit</a>
 
                         <!-- Remove -->
-                        <form action="/books/<%= book.id %>/remove" method="post" class="remove-button">
+                        <form action="/books/<%= book.id %>/remove" method="post">
                             <button type="submit"
                                 onclick="return confirm('This will remove the book completely. Are you sure want to remove the book?')">Remove</button>
                         </form>
