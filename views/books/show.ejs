@@ -24,14 +24,16 @@
                 <!-- Action -->
                 <div class="book-details-actions">
                     <!-- Edit -->
-                    <a href="/books/<%= book.id %>/edit" class="edit-button"><i
+                    <a href="/books/<%= book.id %>/edit" class="book-details-edit-button"><i
                             class="fa-solid fa-pen-to-square"></i><span>Edit</span></a>
 
                     <!-- Remove -->
-                    <form action="/books/<%= book.id %>/remove" method="post" class="remove-button">
+                    <form action="/books/<%= book.id %>/remove" method="post" class="book-details-remove-button">
                         <button type="submit"
                             onclick="return confirm('This will remove the book completely. Are you sure want to remove the book?')"><i
-                                class="fa-solid fa-trash"></i><span>Remove</span></button>
+                                class="fa-solid fa-trash">
+                            </i><span>Remove</span>
+                        </button>
                     </form>
                 </div>
 
@@ -79,7 +81,7 @@
                                 <%= new Date(book.start_date).toLocaleDateString('en-US', { month: 'short' ,
                                     day: 'numeric' , year: 'numeric' , timeZone: 'UTC' }); %>
                                     <% } else { %>
-                                        <div class="not-started">
+                                        <div class="book-details-not-started">
                                             Not started
                                         </div>
                                         <% } %>
@@ -94,7 +96,7 @@
                                 <%= new Date(book.completion_date).toLocaleDateString('en-US',{ month: 'short' ,
                                     day: 'numeric' , year: 'numeric' , timeZone: 'UTC' }); %>
                                     <% } else { %>
-                                        <div class="not-completed">
+                                        <div class="book-details-not-completed">
                                             Not completed
                                         </div>
                                         <% } %>
@@ -117,11 +119,11 @@
             <!-- Content -->
             <div class="book-note-content">
                 <% if (book.note) {%>
-                    <p class="full-note">
+                    <p class="book-note-content-full-note">
                         <%= book.note %>
                     </p>
                     <% }else{%>
-                        <p class="empty-note">
+                        <p class="book-note-no-note">
                             No note added yet.
                         </p>
                         <% } %>
