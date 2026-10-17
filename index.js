@@ -46,6 +46,42 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+// ====================== Api ======================
+
+//Fetch book cover from open library api
+async function getCoverUrl(title, author) {
+    try {
+        const response = await axios.get(
+            'https://openlibrary.org/search.json',
+            {
+                params: {
+                    title,
+                    author,
+                    fields: 'title,author_name,cover_i',
+                    limit: 10,
+                },
+                timeout: 5000,
+            }
+        );
+
+        const books = response.data.docs || [];
+
+        const matchingBook = books.find(book =>
+            book.cover_i != null &&
+            book.title?.trim().toLowerCase() === title.toLowerCase() &&
+            book.author_name?.some(name => name.trim().toLowerCase() === author.toLowerCase())
+        );
+
+        return `https://covers.openlibrary.org/b/id/${matchingBook.cover_i}-L.jpg`;
+
+    } catch (error) {
+        console.error('Open library cover lookup failed:', error.message);
+        return null;
+    }
+}
+
+
+
 // ====================== ROUTES ======================
 
 // Redirect the root URL to books page
@@ -75,31 +111,30 @@ app.get('/books/new', (req, res) => {
     });
 });
 
-//Add book to database
+//Add book details to database
 app.post('/books', async (req, res) => {
 
-    console.log(req.body);
-    const {
-        title,
-        author,
-        rating,
-        status,
-        start_date,
-        completion_date,
-        note,
-    } = req.body;
+    const title = req.body.title.trim();
+    const author = req.body.author.trim();
+    const rating = req.body.rating || null;
+    const status = req.body.status;
+    const start_date = req.body.start_date || null;
+    const completion_date = req.body.completion_date || null;
+    const note = req.body.note || null;
+    const cover_url = await getCoverUrl(title, author);
 
     try {
-        await db.query(`INSERT INTO books (title, author, rating, status, start_date, completion_date, note) 
-                        VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+        await db.query(`INSERT INTO books (title, author, rating, status, start_date, completion_date, note, cover_url)
+                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
             [
                 title,
                 author,
-                rating || null,
+                rating,
                 status,
-                start_date || null,
-                completion_date || null,
-                note || null
+                start_date,
+                completion_date,
+                note,
+                cover_url
             ]
         );
         res.redirect('/books');
