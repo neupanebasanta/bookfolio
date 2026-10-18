@@ -107,19 +107,19 @@ body {
 .logo {
     display: flex;
     align-items: center;
+    gap: 3px;
     text-decoration: none;
     color: var(--primary-color);
 }
 
 .logo img {
-    height: 30px;
+    height: 33px;
     font-family: var(--heading-font);
-    fill: var(--primary-color);
 }
 
 .logo span {
     font-family: var(--heading-font);
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
@@ -140,7 +140,7 @@ body {
 }
 
 .navbar-links a:hover {
-    color: var(--accent-color);
+    color: var(--primary-hover-color);
 }
 
 .navbar-links a:active {
@@ -153,29 +153,23 @@ body {
 .navbar-action a {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 5px 12px;
+    gap: 5px;
+    padding: 10px 12px;
     text-decoration: none;
     border-radius: 6px;
     color: var(--surface-color);
     background-color: var(--primary-color);
-    font-weight: 500;
-    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease, color 0.2sec ease;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
 }
 
 .navbar-action a:hover {
-    background-color: var(--accent-color);
-    color: var(--text-color);
+    background-color: var(--primary-hover-color);
 }
 
 .navbar-action a:active {
     transform: translateY(1px);
     opacity: 0.7;
-}
-
-.navbar-action a span {
-    font-size: 1.4rem;
-    font-weight: 400;
 }
 
 

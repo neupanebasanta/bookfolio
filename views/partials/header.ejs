@@ -19,26 +19,26 @@
         <div class="navbar-logo">
             <a href="/" class="logo">
                 <img src="/images/logo.svg" alt="logo">
-                <span>ookfolio</span>
+                <span>Bookfolio</span>
             </a>
         </div>
 
         <!-- Links -->
         <div class=" navbar-links">
-            <a href="/books" class="active">Books</a>
+            <a href="/books" class="active">Home</a>
             <a href="/about">About</a>
         </div>
 
         <!-- Action Button -->
         <div class="navbar-action">
             <% if(currentPage==='/books' ) { %>
-                <a href="/books/new"><span>+</span>Add new</a>
+                <a href="/books/new"><i class="fa-solid fa-plus"></i>Add new</a>
                 <% } else if(currentPage==='/books/new' ) { %>
-                    <a href="/books"><span>←</span>To Books</a>
+                    <a href="/books"><i class="fa-solid fa-arrow-left"></i>To Books</a>
                     <% } else if(currentPage==='/about' ) {%>
-                        <a href="/books"><span>←</span>To Books</a>
+                        <a href="/books"><i class="fa-solid fa-arrow-left"></i>To Books</a>
                         <% } else if(currentPage==='/books/id' ) { %>
-                            <a href="/books"><span>←</span>To Books</a>
+                            <a href="/books"><i class="fa-solid fa-arrow-left"></i>To Books</a>
                             <% } %>
         </div>
 
