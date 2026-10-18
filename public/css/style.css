@@ -1,21 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
-/* :root {
-    --heading-font: "Playfair Display", serif;
-    --body-font: "Inter", sans-serif;
-
-    --background-color: #171513;
-    --surface-color: #24201B;
-
-    --primary-color: #D6B978;
-    --accent-color: #8FAF8F;
-
-    --text-color: #F3EDE2;
-    --muted-text-color: #AFA69A;
-
-    --border-color: #3A332B;
-} */
-
 :root {
     --heading-font: "Playfair Display", serif;
     --body-font: "Inter", sans-serif;
@@ -37,21 +21,6 @@
     --warning-color: #E8C58A;
 }
 
-/* :root {
-    --heading-font: "Playfair Display", serif;
-    --body-font: "Inter", sans-serif;
-
-    --background-color: #0F172A;
-    --surface-color: #1E293B;
-
-    --primary-color: #7679ff;
-    --accent-color: #76ABAE;
-
-    --text-color: #d6dfe7;
-    --muted-text-color: #94A3B8;
-
-    --border-color: #2e3f5a;
-} */
 
 /* ======================        Global        ======================*/
 
@@ -154,7 +123,7 @@ body {
     display: flex;
     align-items: center;
     gap: 5px;
-    padding: 10px 12px;
+    padding: 9px 9px;
     text-decoration: none;
     border-radius: 6px;
     color: var(--surface-color);
@@ -215,7 +184,7 @@ body {
 }
 
 .search-form input:focus {
-    border-color: var(--accent-color);
+    border-color: var(--primary-hover-color);
 }
 
 .search-form button {
@@ -227,12 +196,11 @@ body {
     font-family: var(--body-font);
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease, color 0.2sec ease;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
 }
 
 .search-form button:hover {
-    background-color: var(--accent-color);
-    color: var(--text-color);
+    background-color: var(--primary-hover-color);
 }
 
 .search-form button:active {
@@ -259,7 +227,7 @@ body {
 }
 
 .sort-form select:focus {
-    border-color: var(--accent-color);
+    border-color: var(--primary-hover-color);
 }
 
 .sort-form button {
@@ -271,12 +239,11 @@ body {
     font-family: var(--body-font);
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease, color 0.2sec ease;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
 }
 
 .sort-form button:hover {
-    background-color: var(--accent-color);
-    color: var(--text-color);
+    background-color: var(--primary-hover-color);
 }
 
 .sort-form button:active {
@@ -296,20 +263,20 @@ body {
 .book-card {
     display: grid;
     grid-template-columns: 150px minmax(0, 1fr) auto;
-    /* min-height: 200px; */
+    min-height: 200px;
     background-color: var(--surface-color);
     border: 1px solid var(--border-color);
     overflow: hidden;
 }
 
 /* Book cover */
-.book-cover {
+.book-card-cover {
     width: 150px;
     height: 230px;
     background-color: var(--background-color);
 }
 
-.book-cover a {
+.book-card-cover a {
     display: block;
     width: 100%;
     height: 100%;
@@ -317,19 +284,18 @@ body {
     transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-.book-cover img {
+.book-card-cover img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.book-cover a:hover {
+.book-card-cover a:hover {
     opacity: 0.9;
 }
 
-/* No cover */
-.no-cover {
+.book-card-no-cover {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -340,14 +306,14 @@ body {
 }
 
 /* Book INFO */
-.book-info {
+.book-card-info {
     display: flex;
     flex-direction: column;
-    padding: 25px;
+    padding: 25px 30px;
 }
 
 /* Title */
-.book-title {
+.book-card-title {
     display: inline-block;
     width: fit-content;
     margin-bottom: 4px;
@@ -355,7 +321,7 @@ body {
     transition: opacity 0.2s ease;
 }
 
-.book-title h2 {
+.book-card-title h2 {
     font-family: var(--heading-font);
     color: var(--primary-color);
     font-size: 1.5rem;
@@ -363,65 +329,86 @@ body {
     line-height: 1.25;
 }
 
-.book-title:hover {
+.book-card-title:hover {
     opacity: 0.75;
 }
 
 /* Author */
-.book-author {
+.book-card-author {
     margin-bottom: 15px;
     color: var(--muted-text-color);
     font-size: 0.9rem;
 }
 
 /* Rating and Status */
-.book-meta {
+.book-card-meta {
     display: flex;
     align-items: center;
     gap: 30px;
     margin-bottom: 15px;
     font-size: 0.85rem;
-    color: var(--primary-color);
+    font-weight: 600;
 }
 
-.not-rated {
-    color: var(--muted-text-color);
+.book-card-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: var(--warning-color);
 }
 
-.book-status {
+.book-card-rating i {
+    font-size: 0.6rem;
+}
+
+.book-card-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: var(--success-color);
     text-transform: uppercase;
 }
 
+.book-card-status i {
+    font-size: 0.6rem;
+}
+
+.book-card-not-rated {
+    color: var(--muted-text-color);
+}
+
 /* Started and Completed Dates */
-.dates {
+.book-card-dates {
     display: flex;
     gap: 30px;
     margin-bottom: 20px;
     font-size: 0.78rem;
 }
 
-.dates>div {
+.book-card-dates>div {
     display: flex;
     gap: 3px;
 }
 
-.dates span {
+.book-card-dates span {
     color: var(--muted-text-color);
 }
 
-.dates strong {
+.book-card-dates strong {
     color: var(--text-color);
     font-size: 0.82rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
-.not-started,
-.not-completed {
+.book-card-not-started,
+.book-card-not-completed {
     color: var(--muted-text-color);
 }
 
 /* Note */
-.book-note {
+.book-card-note {
     max-width: 750px;
     color: var(--text-color);
     font-size: 0.90rem;
@@ -429,43 +416,51 @@ body {
     overflow: hidden;
 }
 
-.no-note {
+.book-card-no-note {
     color: var(--muted-text-color);
     font-family: italic;
 }
 
 /* Edit and Remove button */
-.book-actions {
+.book-card-actions {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
     padding: 25px 10px;
-    /* border-left: 1px solid var(--border-color); */
 }
 
-.book-actions a,
-.book-actions button {
+.book-card-edit-button,
+.book-card-remove-button button {
     padding: 7px 22px;
     border: 1px solid var(--border-color);
     border-radius: 6px;
     background: transparent;
     color: var(--text-color);
-    font-family: var(--body-font);
     font-size: 0.88rem;
-    text-decoration: none;
-    cursor: pointer;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-.book-actions a:hover {
+.book-card-edit-button {
+    background: transparent;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.book-card-edit-button:hover {
+    background: var(--primary-color);
     border-color: var(--primary-color);
 }
 
-.book-actions button:hover {
-    border-color: var(--text-color);
+.book-card-remove-button button {
+    color: var(--danger-color);
+    background: transparent;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
+.book-card-remove-button button:hover {
+    color: var(--text-color);
+    background: var(--danger-color);
+    border-color: var(--danger-color);
+}
 
 /* ======================        ADD NEW BOOK PAGE        ====================== */
 
@@ -532,7 +527,7 @@ body {
     gap: 25px;
 }
 
-/* Submit and Clear button */
+/* Submit and Reset button */
 .form-actions {
     display: flex;
     align-items: center;
@@ -542,13 +537,16 @@ body {
     padding-top: 30px;
 }
 
-/* Submit button */
-.submit-button {
+/* Reset button */
+.reset-button {
+    display: flex;
+    align-items: center;
+    gap: 3px;
     padding: 12px 24px;
-    border: none;
+    border: 1px solid var(--danger-color);
     border-radius: 6px;
-    background-color: var(--primary-color);
-    color: var(--surface-color);
+    background: transparent;
+    color: var(--danger-color);
     font-family: var(--body-font);
     font-size: 0.95rem;
     font-weight: 600;
@@ -556,36 +554,47 @@ body {
     transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease, color 0.2sec ease;
 }
 
-.submit-button:hover {
-    background-color: var(--accent-color);
-    color: var(--text-color);
+.reset-button i {
+    font-size: 0.8rem;
 }
 
-.submit-button:active {
+.reset-button:hover {
+    background-color: var(--danger-color);
+    color: var(--surface-color);
+}
+
+.reset-button:active {
     transform: translateY(1px);
     opacity: 0.7;
 }
 
-/* Clear button */
-.clear-button {
+/* Submit button */
+.submit-button {
+    display: flex;
+    align-items: center;
+    gap: 3px;
     padding: 12px 24px;
-    border: none;
+    border: 1px solid var(--success-color);
     border-radius: 6px;
-    background-color: var(--primary-color);
-    color: var(--surface-color);
+    background: transparent;
+    color: var(--success-color);
     font-family: var(--body-font);
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease, color 0.2sec ease;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
 }
 
-.clear-button:hover {
-    background-color: var(--accent-color);
-    color: var(--text-color);
+.submit-button i {
+    font-size: 0.8rem;
 }
 
-.clear-button:active {
+.submit-button:hover {
+    background-color: var(--success-color);
+    color: var(--surface-color);
+}
+
+.submit-button:active {
     transform: translateY(1px);
     opacity: 0.7;
 }
@@ -878,16 +887,16 @@ body {
     font-weight: 600;
 }
 
-.book-note-heading i{
+.book-note-heading i {
     color: var(--primary-color);
     font-size: 1rem;
 }
 
-.book-note-content{
+.book-note-content {
     min-width: 0;
 }
 
-.book-note-content-full-note{
+.book-note-content-full-note {
     margin: 0;
     color: var(--muted-text-color);
     font-family: var(--body-font);
@@ -897,7 +906,7 @@ body {
     overflow-wrap: anywhere;
 }
 
-.book-note-no-note{
+.book-note-no-note {
     margin: 0;
     color: var(--muted-text-color);
     font-size: 0.9rem;

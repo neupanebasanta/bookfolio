@@ -94,7 +94,7 @@ app.get('/books', async (req, res) => {
     try {
         const result = await db.query('SELECT * FROM books');
 
-        res.render('books.ejs', {
+        res.render('index.ejs', {
             currentPage: '/books',
             books: result.rows,
 

@@ -37,12 +37,12 @@
                 <article class="book-card">
 
                     <!-- Cover -->
-                    <div class="book-cover">
+                    <div class="book-card-cover">
                         <a href="/books/<%= book.id %>">
                             <% if (book.cover_url) { %>
                                 <img src="<%= book.cover_url %>" alt="<%= book.title %>">
                                 <% } else{ %>
-                                    <div class="no-cover">
+                                    <div class="book-card-no-cover">
                                         No cover
                                     </div>
                                     <% } %>
@@ -51,45 +51,49 @@
                     </div>
 
                     <!-- Info -->
-                    <div class="book-info">
+                    <div class="book-card-info">
 
                         <!-- Title -->
-                        <a href="/books/<%= book.id %>" class="book-title">
+                        <a href="/books/<%= book.id %>" class="book-card-title">
                             <h2>
                                 <%= book.title %>
                             </h2>
                         </a>
 
                         <!-- Author -->
-                        <p class="book-author">
+                        <p class="book-card-author">
                             by <%= book.author %>
                         </p>
 
                         <!-- Rating and Status -->
-                        <div class="book-meta">
+                        <div class="book-card-meta">
                             <!-- Rating -->
                             <% if(book.rating) { %>
-                                <span class="book-rating">⭐ <%= book.rating %></span>
+                                <span class="book-card-rating"><i class="fa-solid fa-star"></i>
+                                    <%= book.rating %>
+                                </span>
                                 <% } else { %>
-                                    <span class="not-rated">Not rated</span>
+                                    <span class="book-card-not-rated">Not rated</span>
                                     <% } %>
 
                                         <!-- Status -->
-                                        <span class=" book-status">🔵 <%= book.status %></span>
+                                        <span class=" book-card-status"><i class="fa-solid fa-circle"> </i>
+                                            <%= book.status %>
+                                        </span>
                         </div>
 
                         <!-- Start and Completion dates -->
-                        <div class="dates">
+                        <div class="book-card-dates">
 
                             <!-- Start -->
-                            <div class="start-date">
+                            <div class="book-card-start-date">
                                 <span>Start:</span>
                                 <strong>
                                     <% if(book.start_date) {%>
                                         <%= book.start_date.toLocaleDateString('en-US', { month: 'short' ,
                                             day: 'numeric' , year: 'numeric' }); %>
                                             <% } else { %>
-                                                <div class="not-started">
+                                                <div class="book-card-not-started">
                                                     Not started
                                                 </div>
                                                 <% } %>
@@ -104,7 +108,7 @@
                                         <%= book.completion_date.toLocaleDateString('en-US',{ month: 'short' ,
                                             day: 'numeric' , year: 'numeric' }); %>
                                             <% } else { %>
-                                                <div class="not-completed">
+                                                <div class="book-card-not-completed">
                                                     Not completed
                                                 </div>
                                                 <% } %>
@@ -113,7 +117,7 @@
                         </div>
 
                         <!-- Note -->
-                        <p class="book-note">
+                        <p class="book-card-note">
                             <% if(book.note) { %>
                                 <% if(book.note.length> 120) { %>
                                     <%= book.note.slice(0, 120) %>…
@@ -121,20 +125,23 @@
                                             <%= book.note %>
                                                 <% } %>
                                                     <% } else { %>
-                                                        <div class="no-note">No note added.</div>
+                                                        <div class="book-card-no-note">No note added.</div>
                                                         <% } %>
                         </p>
                     </div>
 
                     <!-- Edit and Remove button -->
-                    <div class="book-actions">
+                    <div class="book-card-actions">
                         <!-- Edit -->
-                        <a href="/books/<%= book.id %>/edit">Edit</a>
+                        <a href="/books/<%= book.id %>/edit" class="book-card-edit-button"><i class="fa-solid fa-pen-to-square"></i>
+                        </a>
 
                         <!-- Remove -->
-                        <form action="/books/<%= book.id %>/remove" method="post">
+                        <form action="/books/<%= book.id %>/remove" method="post" class="book-card-remove-button">
                             <button type="submit"
-                                onclick="return confirm('This will remove the book completely. Are you sure want to remove the book?')">Remove</button>
+                                onclick="return confirm('This will remove the book completely. Are you sure want to remove the book?')"><i
+                                    class="fa-solid fa-trash">
+                                </i></button>
                         </form>
                     </div>
 
