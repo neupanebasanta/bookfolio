@@ -912,3 +912,78 @@ body {
     font-size: 0.9rem;
     font-style: italic;
 }
+
+
+/* ======================        Footer        ======================*/
+
+.footer{
+    margin-top: 60px;
+    padding: 28px 5% 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Footer main */
+.footer-main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.footer-brand{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.footer-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.footer-tagline {
+    margin: 0;
+    color: var(--muted-text-color);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Footer bottom */
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-copyright,
+.footer-motto {
+    margin: 0;
+    color: var(--muted-text-color);
+    font-size: 0.82rem;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.footer-links a {
+    color: var(--muted-text-color);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
