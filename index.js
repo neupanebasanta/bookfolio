@@ -72,7 +72,14 @@ async function getCoverUrl(title, author) {
             book.author_name?.some(name => name.trim().toLowerCase() === author.toLowerCase())
         );
 
-        return `https://covers.openlibrary.org/b/id/${matchingBook.cover_i}-L.jpg`;
+        const bookWithCover =
+            matchingBook || books.find(book => book.cover_i != null);
+
+        if (!bookWithCover) {
+            return null;
+        }
+
+        return `https://covers.openlibrary.org/b/id/${bookWithCover.cover_i}-L.jpg`;
 
     } catch (error) {
         console.error('Open library cover lookup failed:', error.message);
@@ -164,6 +171,24 @@ app.get('/books/:id', async (req, res) => {
     } catch (error) {
         console.error('Error finding book by id:', error);
         res.status(500).send('Failed to fetch book. Reload and try again please');
+    }
+});
+
+//Edit page
+app.get('/books/:id/edit', async (req, res) => {
+    const id = req.params.id;
+    try {
+        const result = await db.query(`SELECT * FROM books WHERE id = $1`, [id]);
+        if (result.rows.length === 0) {
+            return res.status(404).send('Book not found.');
+        }
+        res.render('books/edit.ejs', {
+            book: result.rows[0],
+            currentPage: '/books/id/edit',
+        });
+    } catch (error) {
+        console.error('Error finding book by id:', error);
+        res.status(500).send('Unable to load the edit page.');
     }
 });
 

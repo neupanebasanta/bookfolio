@@ -2,40 +2,40 @@
 <%- include('../partials/header.ejs') %>
 
     <!-- Main section -->
-    <main class="container add-book-page">
+    <main class="add-book-page">
 
         <!-- Page-header -->
         <div class="page-header">
             <h1>Add a new book</h1>
         </div>
 
-        <!-- Book add form -->
+        <!-- Add book form -->
         <form action="/books" method="post" class="add-book-form">
 
             <!-- Title -->
-            <div class="form-group">
-                <label for="title">Title:∗</label>
+            <div class="add-book-form-group">
+                <label for="title">Title:<i class="fa-solid fa-asterisk"></i></label>
                 <input type="text" id="title" name="title" required>
             </div>
 
             <!-- Author -->
-            <div class="form-group">
-                <label for="author">Author:∗</label>
+            <div class="add-book-form-group">
+                <label for="author">Author:<i class="fa-solid fa-asterisk"></i></label>
                 <input type="text" id="author" name="author" required>
             </div>
 
             <!-- Rating and Status -->
-            <div class="form-row">
+            <div class="add-book-form-row">
 
                 <!-- Rating -->
-                <div class="form-group">
+                <div class="add-book-form-group">
                     <label for="rating">Rating:</label>
                     <input type="number" id="rating" name="rating" min="1" max="5" step="0.5">
                 </div>
 
                 <!-- Status -->
-                <div class="form-group">
-                    <label for="status">Status:∗</label>
+                <div class="add-book-form-group">
+                    <label for="status">Status:<i class="fa-solid fa-asterisk"></i></label>
                     <select name="status" id="status" required>
                         <option value="" selected disabled>Select status</option>
                         <option value="want-to-read">Want to read</option>
@@ -47,16 +47,16 @@
             </div>
 
             <!-- Dates -->
-            <div class="form-row">
+            <div class="add-book-form-row">
 
                 <!-- Start Date -->
-                <div class="form-group">
+                <div class="add-book-form-group">
                     <label for="start-date">Start date:</label>
                     <input type="date" id="start-date" name="start_date">
                 </div>
 
                 <!-- Completion Date -->
-                <div class="form-group">
+                <div class="add-book-form-group">
                     <label for="completion-date">Completion date:</label>
                     <input type="date" name="completion_date" id="completion-date">
                 </div>
@@ -64,15 +64,15 @@
             </div>
 
             <!-- Notes -->
-            <div class="form-group">
+            <div class="add-book-form-group">
                 <label for="note">Notes:</label>
                 <textarea name="note" id="note" rows="6"></textarea>
             </div>
 
             <!-- Submit and reset buttons -->
-            <div class="form-actions">
-                <button type="reset" class="reset-button"><i class="fa-solid fa-rotate"></i> Reset</button>
-                <button type="submit" class="submit-button"><i class="fa-solid fa-check"></i> Add</button>
+            <div class="add-book-form-actions">
+                <button type="reset" class="add-book-form-reset-button"><i class="fa-solid fa-rotate"></i> Reset</button>
+                <button type="submit" class="add-book-form-submit-button"><i class="fa-solid fa-check"></i> Add</button>
             </div>
 
         </form>

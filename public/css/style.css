@@ -482,21 +482,26 @@ body {
 }
 
 /* Form group */
-.form-group {
+.add-book-form-group {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.form-group label {
+.add-book-form-group label {
     color: var(--text-color);
     font-size: 0.9rem;
     font-weight: 500;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+.add-book-form-group label i{
+    font-size: 0.6rem;
+    color: var(--danger-color);
+}
+
+.add-book-form-group input,
+.add-book-form-group select,
+.add-book-form-group textarea {
     width: 100%;
     padding: 11px 14px;
     outline: none;
@@ -509,26 +514,26 @@ body {
     transition: border-color 0.2s ease;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+.add-book-form-group input:focus,
+.add-book-form-group select:focus,
+.add-book-form-group textarea:focus {
     border-color: var(--accent-color);
 }
 
-.form-group textarea {
+.add-book-form-group textarea {
     resize: vertical;
     min-height: 150px;
 }
 
 /* Form row */
-.form-row {
+.add-book-form-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
 }
 
 /* Submit and Reset button */
-.form-actions {
+.add-book-form-actions {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -538,7 +543,7 @@ body {
 }
 
 /* Reset button */
-.reset-button {
+.add-book-form-reset-button {
     display: flex;
     align-items: center;
     gap: 3px;
@@ -554,30 +559,30 @@ body {
     transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease, color 0.2sec ease;
 }
 
-.reset-button i {
+.add-book-form-reset-button i {
     font-size: 0.8rem;
 }
 
-.reset-button:hover {
+.add-book-form-reset-button:hover {
     background-color: var(--danger-color);
     color: var(--surface-color);
 }
 
-.reset-button:active {
+.add-book-form-reset-button:active {
     transform: translateY(1px);
     opacity: 0.7;
 }
 
 /* Submit button */
-.submit-button {
+.add-book-form-submit-button {
     display: flex;
     align-items: center;
     gap: 3px;
-    padding: 12px 24px;
-    border: 1px solid var(--success-color);
+    border: none;
+    padding: 13px 25px;
     border-radius: 6px;
-    background: transparent;
-    color: var(--success-color);
+    background-color: var(--primary-color);
+    color: var(--surface-color);
     font-family: var(--body-font);
     font-size: 0.95rem;
     font-weight: 600;
@@ -585,16 +590,15 @@ body {
     transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
 }
 
-.submit-button i {
+.add-book-form-submit-button i {
     font-size: 0.8rem;
 }
 
-.submit-button:hover {
-    background-color: var(--success-color);
-    color: var(--surface-color);
+.add-book-form-submit-button:hover {
+    background-color: var(--primary-hover-color);
 }
 
-.submit-button:active {
+.add-book-form-submit-button:active {
     transform: translateY(1px);
     opacity: 0.7;
 }
@@ -916,21 +920,21 @@ body {
 
 /* ======================        Footer        ======================*/
 
-.footer{
+.footer {
     margin-top: 60px;
     padding: 28px 5% 20px;
     border-top: 1px solid var(--border-color);
 }
 
 /* Footer main */
-.footer-main{
+.footer-main {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 24px;
 }
 
-.footer-brand{
+.footer-brand {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -986,4 +990,146 @@ body {
 
 .footer-links a:hover {
     color: var(--primary-color);
+}
+
+
+/* ======================        Edit page        ====================== */
+
+.edit-page {
+    width: 800px;
+    margin: 0 auto;
+    padding: 40px 0 60px 0;
+}
+
+/* Form */
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 35px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+/* Form group */
+.edit-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.edit-form-group label {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.edit-form-group label i{
+    font-size: 0.6rem;
+    color: var(--danger-color);
+}
+
+.edit-form-group input,
+.edit-form-group select,
+.edit-form-group textarea {
+    width: 100%;
+    padding: 11px 14px;
+    outline: none;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease;
+}
+
+.edit-form-group input:focus,
+.edit-form-group select:focus,
+.edit-form-group textarea:focus {
+    border-color: var(--accent-color);
+}
+
+.edit-form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Form row */
+.edit-form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/* Submit and Reset button */
+.edit-form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+    border-top: 2px dashed var(--border-color);
+    padding-top: 30px;
+}
+
+/* Reset button */
+.edit-form-reset-button {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 12px 24px;
+    border: 1px solid var(--danger-color);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--danger-color);
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease, color 0.2sec ease;
+}
+
+.edit-form-reset-button i {
+    font-size: 0.8rem;
+}
+
+.edit-form-reset-button:hover {
+    background-color: var(--danger-color);
+    color: var(--surface-color);
+}
+
+.edit-form-reset-button:active {
+    transform: translateY(1px);
+    opacity: 0.7;
+}
+
+/* Submit button */
+.edit-form-submit-button {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 6px;
+    background-color: var(--primary-color);
+    color: var(--surface-color);
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.edit-form-submit-button i {
+    font-size: 0.8rem;
+}
+
+.edit-form-submit-button:hover {
+    background-color: var(--primary-hover-color);
+}
+
+.edit-form-submit-button:active {
+    transform: translateY(1px);
+    opacity: 0.7;
 }

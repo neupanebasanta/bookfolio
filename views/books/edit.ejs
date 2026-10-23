@@ -1,0 +1,91 @@
+<!-- Header section -->
+<%- include('../partials/header.ejs') %>
+
+
+    <!-- Main section -->
+    <main class="edit-page">
+
+        <!-- Page header -->
+        <div class="page-header">
+            <h1>Edit book</h1>
+            <p>Update the details of your book.</p>
+        </div>
+
+        <!-- Edit form -->
+        <form action="/books/<%= book.id %>" method="post" class="edit-form">
+
+            <!-- Title -->
+            <div class="edit-form-group">
+                <label for="title">Title:<i class="fa-solid fa-asterisk"></i></label>
+                <input type="text" id="title" name="title" value="<%= book.title %>" required>
+            </div>
+
+            <!-- Author -->
+            <div class="edit-form-group">
+                <label for="author">Author:<i class="fa-solid fa-asterisk"></i></label>
+                <input type="text" id="author" name="author" value="<%= book.author %>" required>
+            </div>
+
+            <!-- Rating and Status -->
+            <div class="edit-form-row">
+
+                <!-- Rating -->
+                <div class="edit-form-group">
+                    <label for="rating">Rating:</label>
+                    <input type="number" value="<%= book.rating || '' %>" id="rating" name="rating" min="1" max="5"
+                        step="0.5">
+                </div>
+
+                <!-- Status -->
+                <div class="edit-form-group">
+                    <label for="status">Status:<i class="fa-solid fa-asterisk"></i></label>
+                    <select name="status" id="status" required>
+                        <option value="" disabled <%=!book.status ? 'selected' : '' %>>Select status</option>
+                        <option value="want-to-read" <%=book.status==='want-to-read' ? 'selected' : '' %> >Want to read
+                        </option>
+                        <option value="reading" <%=book.status==='reading' ? 'selected' : '' %> >Reading</option>
+                        <option value="finished" <%=book.status==='finished' ? 'selected' : '' %> >Finished</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- Dates -->
+            <div class="edit-form-row">
+
+                <!-- Start Date -->
+                <div class="edit-form-group">
+                    <label for="start-date">Start date:</label>
+                    <input type="date" name="start_date"
+                        value="<%= book.start_date ? new Date(book.start_date).toISOString().slice(0,10) : '' %>"
+                        id="start-date">
+                </div>
+
+                <!-- Completion Date -->
+                <div class="edit-form-group">
+                    <label for="completion-date">Completion date:</label>
+                    <input type="date" name="completion_date"
+                        value="<%= book.completion_date ? new Date(book.completion_date).toISOString().slice(0, 10) : '' %>"
+                        id="completion-date">
+                </div>
+
+            </div>
+
+            <!-- Notes -->
+            <div class="edit-form-group">
+                <label for="note">Notes:</label>
+                <textarea name="note" id="note" rows="6"><%= book.note %></textarea>
+            </div>
+
+            <!-- Submit and reset buttons -->
+            <div class="add-book-form-actions">
+                <button type="reset" class="edit-form-reset-button"><i class="fa-solid fa-rotate"></i> Reset</button>
+                <button type="submit" class="edit-form-submit-button"><i class="fa-solid fa-check"></i> Edit</button>
+            </div>
+
+        </form>
+    </main>
+
+
+    <!-- Footer section -->
+    <%- include('../partials/footer.ejs') %>
