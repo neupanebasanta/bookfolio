@@ -88,7 +88,6 @@ async function getCoverUrl(title, author) {
 }
 
 
-
 // ====================== ROUTES ======================
 
 // Redirect the root URL to books page
@@ -99,7 +98,7 @@ app.get('/', (req, res) => {
 // Books page
 app.get('/books', async (req, res) => {
     try {
-        const result = await db.query('SELECT * FROM books');
+        const result = await db.query('SELECT * FROM books ORDER BY id ASC');
 
         res.render('index.ejs', {
             currentPage: '/books',
@@ -107,6 +106,7 @@ app.get('/books', async (req, res) => {
 
         });
     } catch (error) {
+        console.error('Error finding books', error);
         res.status(500).send('Unable to fetch data from database. Please try again.');
     }
 });
@@ -127,7 +127,7 @@ app.post('/books', async (req, res) => {
     const status = req.body.status;
     const start_date = req.body.start_date || null;
     const completion_date = req.body.completion_date || null;
-    const note = req.body.note || null;
+    const note = req.body.note?.trim() || null;
     const cover_url = await getCoverUrl(title, author);
 
     try {
@@ -189,6 +189,53 @@ app.get('/books/:id/edit', async (req, res) => {
     } catch (error) {
         console.error('Error finding book by id:', error);
         res.status(500).send('Unable to load the edit page.');
+    }
+});
+
+//Add book details to database
+app.post('/books/:id', async (req, res) => {
+    const id = req.params.id;
+    const title = req.body.title.trim();
+    const author = req.body.author.trim();
+    const rating = req.body.rating || null;
+    const status = req.body.status;
+    const start_date = req.body.start_date || null;
+    const completion_date = req.body.completion_date || null;
+    const note = req.body.note?.trim() || null;
+    const cover_url = await getCoverUrl(title, author);
+
+    try {
+        await db.query(`UPDATE books 
+                        SET title = $1, author = $2, rating = $3, status = $4, start_date = $5, completion_date = $6, note = $7, cover_url = $8 
+                        WHERE id = $9`,
+            [
+                title,
+                author,
+                rating,
+                status,
+                start_date,
+                completion_date,
+                note,
+                cover_url,
+                id
+            ]);
+        res.redirect('/books');
+
+    } catch (error) {
+        console.error('Error updating book:', error);
+        res.status(500).send('Unable to update book.');
+    }
+});
+
+//Delete book from database
+app.post('/books/:id/delete', async (req, res) => {
+    const id = req.params.id;
+    try {
+        await db.query('DELETE FROM books WHERE id = $1', [id]);
+        res.redirect('/books');
+    } catch (error) {
+        console.error('Error deleting book:', error);
+        res.status(500).send('Unable to delete bokk.');
     }
 });
 

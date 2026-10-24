@@ -27,12 +27,12 @@
                     <a href="/books/<%= book.id %>/edit" class="book-details-edit-button"><i
                             class="fa-solid fa-pen-to-square"></i><span>Edit</span></a>
 
-                    <!-- Remove -->
-                    <form action="/books/<%= book.id %>/remove" method="post" class="book-details-remove-button">
+                    <!-- Delete -->
+                    <form action="/books/<%= book.id %>/delete" method="post" class="book-details-remove-button">
                         <button type="submit"
-                            onclick="return confirm('This will remove the book completely. Are you sure want to remove the book?')"><i
+                            onclick="return confirm('This action will completely delet this book. Are you sure want to delete the book?')"><i
                                 class="fa-solid fa-trash">
-                            </i><span>Remove</span>
+                            </i><span>Delete</span>
                         </button>
                     </form>
                 </div>

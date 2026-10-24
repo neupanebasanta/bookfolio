@@ -13,7 +13,7 @@
         <div class="books-controls">
 
             <!-- Search Bar Form -->
-            <form action="/books" method="get" class="search-form">
+            <form action="/book" method="post" class="search-form">
                 <input type="search" name="search_query" placeholder="Search books...">
                 <button type="submit">Search</button>
             </form>
@@ -130,17 +130,17 @@
                         </p>
                     </div>
 
-                    <!-- Edit and Remove button -->
+                    <!-- Edit and Delete button -->
                     <div class="book-card-actions">
                         <!-- Edit -->
                         <a href="/books/<%= book.id %>/edit" class="book-card-edit-button"><i
                                 class="fa-solid fa-pen-to-square"></i>
                         </a>
 
-                        <!-- Remove -->
-                        <form action="/books/<%= book.id %>/remove" method="post" class="book-card-remove-button">
+                        <!-- Delete -->
+                        <form action="/books/<%= book.id %>/delete" method="post" class="book-card-remove-button">
                             <button type="submit"
-                                onclick="return confirm('This will remove the book completely. Are you sure want to remove the book?')"><i
+                                onclick="return confirm('This action will completely delet this book. Are you sure want to delete the book?')"><i
                                     class="fa-solid fa-trash">
                                 </i></button>
                         </form>
