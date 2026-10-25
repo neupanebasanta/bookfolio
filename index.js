@@ -4,6 +4,7 @@ import pg from 'pg';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import 'dotenv/config';
+import { title } from 'process';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -97,13 +98,32 @@ app.get('/', (req, res) => {
 
 // Books page
 app.get('/books', async (req, res) => {
+
+    // Search
+    const searchQuery = req.query.search_query;
+
+
+
+    // Sort
+    const sortQuery = req.query.sort_query;
+
+    const sortOptions = {
+        recent: 'created_at DESC',
+        rating: 'rating DESC NULLS LAST',
+        'a-z': 'title ASC',
+    }
+
+    const sortBy = sortOptions[sortQuery] || sortOptions.recent;
+
     try {
-        const result = await db.query('SELECT * FROM books ORDER BY id ASC');
+
+        const result = await db.query(`SELECT * FROM books ORDER BY ${sortBy}`);
 
         res.render('index.ejs', {
             currentPage: '/books',
             books: result.rows,
-
+            sortQuery: sortQuery,
+            searchQuery: searchQuery
         });
     } catch (error) {
         console.error('Error finding books', error);

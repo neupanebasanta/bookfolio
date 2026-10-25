@@ -4,21 +4,21 @@
     --heading-font: "Playfair Display", serif;
     --body-font: "Inter", sans-serif;
 
-    --background-color: #0F172A;
-    --surface-color: #1E293B;
-    --surface-hover-color: #2e3f5a;
+    --background-color: #0b0914;
+    --surface-color: #151226;
+    --surface-hover-color: #221c3b;
 
-    --primary-color: #7679ff;
-    --primary-hover-color: #8e91ff;
+    --primary-color: #ff70a6;
+    --primary-hover-color: #ff97c1;
 
-    --text-color: #d6dfe7;
-    --muted-text-color: #94A3B8;
+    --text-color: #f3f3f5;
+    --muted-text-color: #9a95b0;
 
-    --border-color: #2e3f5a;
+    --border-color: #2d264d;
 
-    --success-color: #76ABAE;
-    --danger-color: #E5A0A0;
-    --warning-color: #E8C58A;
+    --success-color: #70ffd0;
+    --danger-color: #ff5c5c;
+    --warning-color: #ffd166;
 }
 
 
@@ -67,9 +67,6 @@ body {
     background-color: var(--surface-color);
     border-bottom: 1px solid var(--border-color);
     transition: box-shadow 0.2s ease;
-    position: sticky;
-    top: 0;
-    z-index: 1;
 }
 
 /* Logo */
@@ -494,7 +491,7 @@ body {
     font-weight: 500;
 }
 
-.add-book-form-group label i{
+.add-book-form-group label i {
     font-size: 0.6rem;
     color: var(--danger-color);
 }
@@ -1025,7 +1022,7 @@ body {
     font-weight: 500;
 }
 
-.edit-form-group label i{
+.edit-form-group label i {
     font-size: 0.6rem;
     color: var(--danger-color);
 }
