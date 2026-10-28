@@ -4,7 +4,6 @@ import pg from 'pg';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import 'dotenv/config';
-import { title } from 'process';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -100,12 +99,12 @@ app.get('/', (req, res) => {
 app.get('/books', async (req, res) => {
 
     // Search
-    const searchQuery = req.query.search_query;
+    const searchQuery = req.query.search_query?.trim() || '';
 
 
 
     // Sort
-    const sortQuery = req.query.sort_query;
+    const sortQuery = req.query.sort_query || 'recent';
 
     const sortOptions = {
         recent: 'created_at DESC',
@@ -113,11 +112,16 @@ app.get('/books', async (req, res) => {
         'a-z': 'title ASC',
     }
 
-    const sortBy = sortOptions[sortQuery] || sortOptions.recent;
+    const sortBy = sortOptions[sortQuery];
 
     try {
 
-        const result = await db.query(`SELECT * FROM books ORDER BY ${sortBy}`);
+        const result = await db.query(`SELECT * 
+                                       FROM books
+                                       WHERE title ILIKE $1
+                                       ORDER BY ${sortBy}`,
+            [`%${searchQuery}%`]
+        );
 
         res.render('index.ejs', {
             currentPage: '/books',
@@ -212,7 +216,7 @@ app.get('/books/:id/edit', async (req, res) => {
     }
 });
 
-//Add book details to database
+//Edit book details to database
 app.post('/books/:id', async (req, res) => {
     const id = req.params.id;
     const title = req.body.title.trim();
