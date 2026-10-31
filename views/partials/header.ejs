@@ -23,25 +23,35 @@
             </a>
         </div>
 
-        <!-- Links -->
-        <div class=" navbar-links">
-            <a href="/books" class="active">Home</a>
-            <a href="/about">About</a>
+        <!-- Menu toggle button -->
+        <div class="navbar-menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
 
-        <!-- Action Button -->
-        <div class="navbar-action">
-            <% if(currentPage==='/books' ) { %>
-                <a href="/books/new"><i class="fa-solid fa-plus"></i>Add new</a>
-                <% } else if(currentPage==='/books/new' ) { %>
-                    <a href="/books"><i class="fa-solid fa-arrow-left"></i>To Books</a>
-                    <% } else if(currentPage==='/about' ) {%>
+        <!-- Menu -->
+        <div class="navbar-menu">
+
+            <!-- Links -->
+            <div class=" navbar-links">
+                <a href="/books" class="active">Home</a>
+                <a href="/about">About</a>
+            </div>
+
+            <!-- Action Button -->
+            <div class="navbar-action">
+                <% if(currentPage==='/books' ) { %>
+                    <a href="/books/new"><i class="fa-solid fa-plus"></i>Add new</a>
+                    <% } else if(currentPage==='/books/new' ) { %>
                         <a href="/books"><i class="fa-solid fa-arrow-left"></i>To Books</a>
-                        <% } else if(currentPage==='/books/id' ) { %>
+                        <% } else if(currentPage==='/about' ) {%>
                             <a href="/books"><i class="fa-solid fa-arrow-left"></i>To Books</a>
-                            <% } else if(currentPage==='/books/id/edit' ){%>
+                            <% } else if(currentPage==='/books/id' ) { %>
                                 <a href="/books"><i class="fa-solid fa-arrow-left"></i>To Books</a>
-                                <%}%>
+                                <% } else if(currentPage==='/books/id/edit' ){%>
+                                    <a href="/books"><i class="fa-solid fa-arrow-left"></i>To Books</a>
+                                    <%}%>
+            </div>
         </div>
-
     </nav>

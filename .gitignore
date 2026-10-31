@@ -145,3 +145,6 @@ vite.config.ts.timestamp-*
 # OS / editor cruft
 .DS_Store
 **/.DS_Store
+
+#Unused code file
+test.txt

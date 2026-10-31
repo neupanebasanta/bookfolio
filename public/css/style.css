@@ -62,50 +62,83 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 50px;
-    height: 70px;
+    width: 94%;
+    margin: 20px auto;
+    padding: 16px 32px;
     background-color: var(--surface-color);
-    border-bottom: 1px solid var(--border-color);
-    transition: box-shadow 0.2s ease;
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    position: sticky;
+    top: 4px;
 }
 
 /* Logo */
 .logo {
     display: flex;
     align-items: center;
-    gap: 3px;
+    gap: 12px;
     text-decoration: none;
     color: var(--primary-color);
 }
 
 .logo img {
-    height: 33px;
-    font-family: var(--heading-font);
+    height: 42px;
+    width: 42px;
+    object-fit: contain;
 }
 
 .logo span {
     font-family: var(--heading-font);
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 600;
 }
 
+/* Menu toggle btn  */
+.navbar-menu-toggle {
+    display: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.7s ease;
+}
+
+.navbar-menu-toggle:active {
+    transform: translateY(1px);
+    opacity: 0.7;
+
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--primary-color);
+}
+
+/* Menu */
+.navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
 
 /* Links */
 .navbar-links {
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: 40px;
 }
 
 .navbar-links a {
     text-decoration: none;
     color: var(--text-color);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 500;
-    transition: color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+    transition: all 0.7s ease;
 }
 
-.navbar-links a:hover {
+.navbar-links a:hover,
+.navbar-links a.active {
     color: var(--primary-hover-color);
 }
 
@@ -114,19 +147,18 @@ body {
     opacity: 0.7;
 }
 
-
-/* ADD New button */
+/* ADD New button  */
 .navbar-action a {
     display: flex;
     align-items: center;
-    gap: 5px;
-    padding: 9px 9px;
+    gap: 8px;
+    padding: 13px 20px;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 25px;
     color: var(--surface-color);
     background-color: var(--primary-color);
     font-weight: 600;
-    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+    transition: all 0.7s ease;
 }
 
 .navbar-action a:hover {
@@ -263,6 +295,7 @@ body {
     min-height: 200px;
     background-color: var(--surface-color);
     border: 1px solid var(--border-color);
+    border-radius: 12px;
     overflow: hidden;
 }
 
@@ -1129,4 +1162,65 @@ body {
 .edit-form-submit-button:active {
     transform: translateY(1px);
     opacity: 0.7;
+}
+
+
+/* ======================        Responsive design        ====================== */
+
+
+/* ======================        Navbar        ====================== */
+
+/* Tablet */
+@media (max-width:880px) {
+    .navbar-menu-toggle {
+        display: block;
+        z-index: 99;
+    }
+
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        gap: 1.7rem;
+        position: absolute;
+        top: 85px;
+        right: 0;
+        padding: 20px;
+        height: 200px;
+        width: 200px;
+        backdrop-filter: blur(50px);
+        border-radius: 24px;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        gap: 1.7rem;
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+}
+
+/* Mobile */
+@media(max-width:480Px) {
+    .navbar{
+        padding: 10px 20px;
+    }
+
+    .logo img{
+        height: 32px;
+        width: 32px;
+    }
+
+    .logo span{
+        font-size: 1.5rem;
+    }
+
+    .navbar-links a{
+        font-size: 1rem;
+    }
+
+    .navbar-action a{
+        padding: 10px 10px;
+    }
 }
